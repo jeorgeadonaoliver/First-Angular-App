@@ -1,10 +1,6 @@
 import { Component, computed, EventEmitter, Input, input, Output, output} from '@angular/core';
+import { User } from './user.model';
 
-interface User {
-  id: string;
-  name: string;
-  avatar: string;
-}
 
 
 @Component({
@@ -17,6 +13,7 @@ interface User {
 
 export class UserComponent {
   @Input({required: true}) user!: User;
+  @Input({required: true}) selected!: boolean;
   @Output() select = new EventEmitter<string>();
 
   get imagePath(){
